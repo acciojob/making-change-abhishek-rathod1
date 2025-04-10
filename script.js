@@ -1,41 +1,26 @@
 const makeChange = (c) => {
   // your name here
-	const money = [
-		["q", 25],
-		["d", 10],
-		["n", 5],
-		["p", 1],
-	]
-	// let result = {
-		let q =0,
-		let d =0,
-		let n =0,
-		let p =0,
-		// d:0,
-		// n:0,
-		// p:0,
-	// }
+	const change = {
+    q: 0, // quarters
+    d: 0, // dimes
+    n: 0, // nickels
+    p: 0  // pennies
+  };
 
-	for(let[symbol, value] of money){
-		while (c>=value) {
-			if(symbol==q){
-				q++;
-			}
-			else if(symbol == d){
-				d++;
-			}
-			else if(symbol ==n){
-				n++;
-			}
-			else if(symbol ==p){
-				p++;
-			}
-			c -= value;
-					
-		}
-	}
-	let result = `q:${q} d:${d} n:${n} p:${p} `
-	return result;
+	change.q = Math.floor(c/25);
+	c = c % 25;
+
+	change.d = Math.floor(c/10);
+	c = c % 10;
+	change.n = Math.floor(c/5);
+	c = c % 5;
+	change.p = c;
+	// c = c % 1;
+
+	return change
+	
+
+	
 };
 
 // Do not the change the code belocw
